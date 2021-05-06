@@ -1,0 +1,126 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Арифметика для Тимоши</title>
+        <link rel="stylesheet" href="css/tim_1_1.css" type="text/css">
+        <style>
+        body {
+            background-image: url("paper.gif");
+            font-family: arial;
+		    font-size: 24px;
+            }
+            .h1
+        	{
+		        font-size: 120%;
+	        }
+            .h2
+        	{
+		        font-size: 110%;
+	        }
+            ul, #myUL {
+                list-style-type: none;
+            }
+
+            #myUL {
+                margin: 0;
+                padding: 0;
+            }
+
+            .caret {
+                cursor: pointer;
+                -webkit-user-select: none; /* Safari 3.1+ */
+                -moz-user-select: none; /* Firefox 2+ */
+                -ms-user-select: none; /* IE 10+ */
+                user-select: none;
+            }
+
+            .caret::before {
+                content: "\25B7";
+                color: black;
+                display: inline-block;
+                margin-right: 6px;
+            }
+
+            .caret-down::before {
+                -ms-transform: rotate(90deg); /* IE 9 */
+                -webkit-transform: rotate(90deg); /* Safari */'
+                transform: rotate(90deg);  
+            }
+
+            .nested {
+                display: none;
+            }
+
+            .active {
+                display: block;
+            }
+        </style>  
+    </head>
+    <body>
+        <p class = 'h1'>Уроки по арифметике для Саши и Тимоши</p>
+
+        <ul id="myUL">
+            <li><span class="caret">Сложение и вычитание от 1 до 10</span>
+                <ul class="nested">
+                    <li><a href="group01/lvl_1_1.html">Числа и цифры</a></li>
+                    <li><a href="group01/lvl_1_2.html">Сложение чисел от 1 до 6</a></li>
+                    <li><a href="group01/lvl_1_3.html">Сложение чисел от 1 до 8</a></li>
+                    <li><a href="group01/lvl_1_4.html">Сложение чисел от 1 до 10</a></li>
+                    <li><a href="group01/lvl_1_5.html">Друзья двойки, тройки, четвёрки и пятерки</a></li>
+                    <li><a href="group01/lvl_1_6.html">Друзья шестерки и семёрки</a></li>
+                    <li><a href="group01/lvl_1_7.html">Друзья восьмёрки и девятки</a></li>
+                    <li><a href="group01/lvl_1_8.html">Друзья десятки</a></li>
+                    <li><a href="group01/lvl_1_9.html">Сложение от 1 до 10: Найди пропущенное число</a></li>
+                    <li><a href="group01/lvl_1_10.html">Вычитание чисел от 1 до 10</a></li>
+                    <li><a href="group01/lvl_1_11.html">Вычитание от 1 до 10: Найди пропущенное число</a></li>        
+                </ul>
+            </li>
+            <li><span class="caret">Сложение и вычитание до 20</span>
+                <ul class="nested">
+                    <li><a href="group02/tim_1_1.html">Сложение чисел от 1 до 20</a></li>
+                    <li><a href="group02/tim_1_11.html">Сложение от 1 до 20: Найди пропущенное число</a></li>
+                    <li><a href="group02/tim_1_12.html">Вычитание чисел от 1 до 20</a></li>
+                    <li><a href="group02/tim_1_13.html">Вычитание от 1 до 20: Найди пропущенное число</a></li>
+                </ul>
+            </li>
+            <li><span class="caret">Сложение и вычитание до 100</span>
+                <ul class="nested">
+                    <li><a href="group03/tim_1_1.html">Сложение чисел от 1 до 100</a></li>
+                    <li><a href="group03/tim_1_11.html">Сложение от 1 до 100: Найди пропущенное число</a></li>
+                    <li><a href="group03/tim_1_12.html">Вычитание чисел от 1 до 100</a></li>
+                    <li><a href="group03/tim_1_13.html">Вычитание от 1 до 100: Найди пропущенное число</a></li>
+                </ul>
+            </li>
+            <li><span class="caret">Таблицы умножения от 2 до 12</span>
+                <ul class="nested">
+                    <li><a href="group05/mul_2.html">Таблица умножения на 2</a></li>
+                    <li><a href="group05/mul_3.html">Таблица умножения на 3</a></li>
+                    <li><a href="group05/mul_4.html">Таблица умножения на 4</a></li>
+                    <li><a href="group05/mul_5.html">Таблица умножения на 5</a></li>
+                    <li><a href="group05/mul_6.html">Таблица умножения на 6</a></li>
+                    <li><a href="group05/mul_7.html">Таблица умножения на 7</a></li>
+                    <li><a href="group05/mul_8.html">Таблица умножения на 8</a></li>
+                    <li><a href="group05/mul_9.html">Таблица умножения на 9</a></li>
+                    <li><a href="group05/mul_10.html">Таблица умножения на 10</a></li>
+                    <li><a href="group05/mul_11.html">Таблица умножения на 11</a></li>
+                    <li><a href="group05/mul_12.html">Таблица умножения на 12</a></li>
+                </ul>
+            </li>
+        </ul>
+          
+        <script>
+        var toggler = document.getElementsByClassName("caret");
+        var i;
+          
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function() {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+            });
+        }
+        </script>
+
+    </body>
+</html>

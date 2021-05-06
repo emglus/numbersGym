@@ -1,0 +1,78 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Numbers Gym</title>
+        <link rel="stylesheet" href="css/index.css" type="text/css">
+        <style type="text/css">
+        </style>
+    </head>
+    <body>
+        <script src="js/members.js" type="text/javascript"></script>
+        <script>
+            initMembers()
+            initCurrent()
+        </script>
+        <script src="js/index.js" type="text/javascript"></script>
+        <h1>Numbers Gym</h1>
+        <div class="box t1">
+            <h3>Existing members</h3>
+            <table id="memberList">
+                <tr>
+                    <th>Username</th>
+                    <th>Level</th>
+                    <th>Counter</th>
+                </tr>
+            </table>
+            <script>
+                updateMemberList()
+            </script>
+        </div>
+        <div class="box t2">
+            <h3>Register new member</h3>
+            <div>
+                <div class="row">
+                    <label for="username">Username:</label>
+                </div>
+                <div class="row">
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="row">
+                    <button id="add" type="submit" class="ng-button-small-red">Register new member</button>
+                </div>
+                <script>
+                    let add = document.getElementById("add")
+                    add.addEventListener("click", function() {
+                        let inp = document.getElementById("username")
+                        let name1 = inp.value
+                        if (name1.length === 0 ) {
+                            alert("Please enter a name")
+                        } else {
+                            if (memberNameAlreadyExists(name1)) {
+                                alert("Name " + name1 + " is already present\nEnter another name")
+                            } else {
+                                addMember(name1)
+                                updateMemberList()
+                            }
+                        }
+                    })
+                </script>
+            </div>
+        </div>
+        <script>
+            // add event listeners to record the name of curret member
+            if (members.length > 0) {
+                var buttons = document.getElementsByClassName("ng-button-small")
+                for (let i = 0; i < buttons.length; i++) {
+                    buttons[i].addEventListener("click", function() {
+                        let name1 = buttons[i].innerHTML;
+                        localStorage.setItem('current', name1);
+                        localStorage.setItem('runLevel', getLevelByMemberName(name1))
+                        window.location.href = "quiz.html";
+                    })
+                }
+            }
+        </script>
+    </body>
+</html>

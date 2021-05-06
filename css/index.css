@@ -1,0 +1,91 @@
+.ng-button-small {
+  padding: 9px 15px;
+  margin: 5px 2px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px #999;
+  width: 160px;
+}
+
+.ng-button-small:hover {background-color: #3e8e41}
+
+.ng-button-small:active {
+  background-color: #3e8e41;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
+.ng-button-small-red {
+  padding: 9px 15px;
+  margin: 5px 2px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #af634c;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px #999;
+}
+
+.ng-button-small-red:hover {background-color: #8e4e3e}
+
+.ng-button-small-red:active {
+  background-color: #8e4e3e;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
+body
+    {
+    width: 100%;
+		font-family: arial;
+		font-size: 24px;
+		}    
+
+    h1 {
+      margin: 6px;
+    }
+
+    .box {
+        width: 40%;
+        padding: 10px;
+        border: 2px solid rgb(66, 65, 65);
+        border-radius: 10px;
+        margin: 6px;
+
+        float: left;
+        text-align: justify;
+    }
+
+    .t1 {
+        background-color: rgb(184, 243, 184);
+    }
+    .t2 {
+        background-color: rgb(240, 199, 199);
+    }
+    th, td {
+        padding-top: 2px;
+        padding-right: 30px;
+        padding-bottom: 2px;
+        padding-left: 2px;
+    }
+    
+    input, button {
+      font-size: 20px;
+      margin: 4px;
+      width: 240px;
+    }
+
+    input {
+      border-radius: 10px;
+    }
+
+

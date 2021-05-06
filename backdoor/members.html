@@ -1,0 +1,78 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Numbers Gym Back Door</title>
+    </head>
+    <body>
+        <script src="../js/members.js" type="text/javascript"></script>
+        <script>
+            initMembers()
+        </script>
+        <div>
+            <button id="reset" type="submit">Reset</button>
+        </div>
+        <script>
+            //alert("behind the back door")
+            let btn1 = document.getElementById("reset")
+            btn1.addEventListener("click", function() {
+                localStorage.clear();
+            })
+        </script>
+        <div>
+            <button id="init" type="submit">Init</button>
+        </div>
+        <script>
+            //alert("behind the back door")
+            let btn0 = document.getElementById("init")
+            btn0.addEventListener("click", function() {
+                initMembers()
+            })
+        </script>
+        <div>
+            <label for="member">Enter name:</label>
+            <input type="text" name="member" id="member"/>
+        </div>
+        <div>
+            <button id="add" type="submit">Add</button>
+        </div>
+        <script>
+            //alert("behind the back door")
+            let btn2 = document.getElementById("add")
+            btn2.addEventListener("click", function() {
+                let inp = document.getElementById("member")
+                let name1 = inp.value
+                addMember(name1)
+            })
+        </script>
+        <div>
+            <button id="advance" type="submit">Advance</button>
+        </div>
+        <script>
+            //alert("behind the back door")
+            let btn3 = document.getElementById("advance")
+            btn3.addEventListener("click", function() {
+                let inp = document.getElementById("member")
+                let name1 = inp.value
+                advanceMember(name1)
+            })
+        </script>
+        <div>
+            <button id="present" type="submit">Is Present?</button>
+        </div>
+        <script>
+            //alert("behind the back door")
+            let btn4 = document.getElementById("present")
+            btn4.addEventListener("click", function() {
+                let inp = document.getElementById("member")
+                let name1 = inp.value
+                if (memberNameAlreadyExists(name1)) {
+                    alert("Name " + name1 + " is already present")
+                } else {
+                    alert("Name " + name1 + " is not present")
+                }
+            })
+        </script>
+    </body>
+</html>
