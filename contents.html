@@ -59,53 +59,89 @@
         </style>  
     </head>
     <body>
-        <p class = 'h1'>Уроки по арифметике для Саши и Тимоши</p>
+        <script src="js/members.js" type="text/javascript"></script>
+        <script>
+            initMembers()
+        </script>
+
+        <script src="quizes/level01.js" type="text/javascript"></script>
+        <script src="quizes/level02.js" type="text/javascript"></script>
+        <script src="quizes/level03.js" type="text/javascript"></script>
+        <script src="quizes/level04.js" type="text/javascript"></script>
+        <script src="quizes/level05.js" type="text/javascript"></script>
+        <script src="quizes/level06.js" type="text/javascript"></script>
+        <script src="quizes/level07.js" type="text/javascript"></script>
+        <script src="quizes/level08.js" type="text/javascript"></script>
+        <script src="quizes/level09.js" type="text/javascript"></script>
+        <script src="quizes/level10.js" type="text/javascript"></script>
+        <script src="quizes/level11.js" type="text/javascript"></script>
+    
+        <script src="quizes/level12.js" type="text/javascript"></script>
+        <script src="quizes/level13.js" type="text/javascript"></script>
+        <script src="quizes/level14.js" type="text/javascript"></script>
+        <script src="quizes/level15.js" type="text/javascript"></script>
+        
+        <script src="js/quiz.js" type="text/javascript"></script>
+
+        <script>
+            currentName = localStorage.getItem('current');
+            currentLevel = getLevelByMemberName(currentName);
+            runLevel = parseInt(localStorage.getItem('runLevel'))
+
+            //let q = getQuizByLevelNumber(runLevel);
+
+            var info1 = document.createElement('p');
+            info1.className = 'h1';
+            info1.innerHTML = "Ученик: " + currentName + " Урок: " + currentLevel;
+            info1.id = "info1";
+            document.body.appendChild(info1); 
+        </script>
 
         <ul id="myUL">
             <li><span class="caret">Сложение и вычитание от 1 до 10</span>
                 <ul class="nested">
-                    <li><a href="group01/lvl_1_1.html">Числа и цифры</a></li>
-                    <li><a href="group01/lvl_1_2.html">Сложение чисел от 1 до 6</a></li>
-                    <li><a href="group01/lvl_1_3.html">Сложение чисел от 1 до 8</a></li>
-                    <li><a href="group01/lvl_1_4.html">Сложение чисел от 1 до 10</a></li>
-                    <li><a href="group01/lvl_1_5.html">Друзья двойки, тройки, четвёрки и пятерки</a></li>
-                    <li><a href="group01/lvl_1_6.html">Друзья шестерки и семёрки</a></li>
-                    <li><a href="group01/lvl_1_7.html">Друзья восьмёрки и девятки</a></li>
-                    <li><a href="group01/lvl_1_8.html">Друзья десятки</a></li>
-                    <li><a href="group01/lvl_1_9.html">Сложение от 1 до 10: Найди пропущенное число</a></li>
-                    <li><a href="group01/lvl_1_10.html">Вычитание чисел от 1 до 10</a></li>
-                    <li><a href="group01/lvl_1_11.html">Вычитание от 1 до 10: Найди пропущенное число</a></li>        
+                    <li><a id="L1" href="quiz.html">Числа и цифры</a></li>
+                    <li><a id="L2" href="quiz.html">Сложение чисел от 1 до 6</a></li>
+                    <li><a id="L3" href="quiz.html">Сложение чисел от 1 до 8</a></li>
+                    <li><a id="L4" href="quiz.html">Сложение чисел от 1 до 10</a></li>
+                    <li><a id="L5" href="quiz.html">Друзья двойки, тройки, четвёрки и пятерки</a></li>
+                    <li><a id="L6" href="quiz.html">Друзья шестерки и семёрки</a></li>
+                    <li><a id="L7" href="quiz.html">Друзья восьмёрки и девятки</a></li>
+                    <li><a id="L8" href="quiz.html">Друзья десятки</a></li>
+                    <li><a id="L9" href="quiz.html">Сложение от 1 до 10: Найди пропущенное число</a></li>
+                    <li><a id="L10" href="quiz.html">Вычитание чисел от 1 до 10</a></li>
+                    <li><a id="L11" href="quiz.html">Вычитание от 1 до 10: Найди пропущенное число</a></li>        
                 </ul>
             </li>
             <li><span class="caret">Сложение и вычитание до 20</span>
                 <ul class="nested">
-                    <li><a href="group02/tim_1_1.html">Сложение чисел от 1 до 20</a></li>
-                    <li><a href="group02/tim_1_11.html">Сложение от 1 до 20: Найди пропущенное число</a></li>
-                    <li><a href="group02/tim_1_12.html">Вычитание чисел от 1 до 20</a></li>
-                    <li><a href="group02/tim_1_13.html">Вычитание от 1 до 20: Найди пропущенное число</a></li>
+                    <li><a id="L12" href="quiz.html">Сложение чисел от 1 до 20</a></li>
+                    <li><a id="L13" href="quiz.html">Сложение от 1 до 20: Найди пропущенное число</a></li>
+                    <li><a id="L14" href="quiz.html">Вычитание чисел от 1 до 20</a></li>
+                    <li><a id="L15" href="quiz.html">Вычитание от 1 до 20: Найди пропущенное число</a></li>
                 </ul>
             </li>
             <li><span class="caret">Сложение и вычитание до 100</span>
                 <ul class="nested">
-                    <li><a href="group03/tim_1_1.html">Сложение чисел от 1 до 100</a></li>
-                    <li><a href="group03/tim_1_11.html">Сложение от 1 до 100: Найди пропущенное число</a></li>
-                    <li><a href="group03/tim_1_12.html">Вычитание чисел от 1 до 100</a></li>
-                    <li><a href="group03/tim_1_13.html">Вычитание от 1 до 100: Найди пропущенное число</a></li>
+                    <li><a id="L16" href="quiz.html">Сложение чисел от 1 до 100</a></li>
+                    <li><a id="L17" href="quiz.html">Сложение от 1 до 100: Найди пропущенное число</a></li>
+                    <li><a id="L18" href="quiz.html">Вычитание чисел от 1 до 100</a></li>
+                    <li><a id="L19" href="quiz.html">Вычитание от 1 до 100: Найди пропущенное число</a></li>
                 </ul>
             </li>
             <li><span class="caret">Таблицы умножения от 2 до 12</span>
                 <ul class="nested">
-                    <li><a href="group05/mul_2.html">Таблица умножения на 2</a></li>
-                    <li><a href="group05/mul_3.html">Таблица умножения на 3</a></li>
-                    <li><a href="group05/mul_4.html">Таблица умножения на 4</a></li>
-                    <li><a href="group05/mul_5.html">Таблица умножения на 5</a></li>
-                    <li><a href="group05/mul_6.html">Таблица умножения на 6</a></li>
-                    <li><a href="group05/mul_7.html">Таблица умножения на 7</a></li>
-                    <li><a href="group05/mul_8.html">Таблица умножения на 8</a></li>
-                    <li><a href="group05/mul_9.html">Таблица умножения на 9</a></li>
-                    <li><a href="group05/mul_10.html">Таблица умножения на 10</a></li>
-                    <li><a href="group05/mul_11.html">Таблица умножения на 11</a></li>
-                    <li><a href="group05/mul_12.html">Таблица умножения на 12</a></li>
+                    <li><a id="L20" href="group05/mul_2.html">Таблица умножения на 2</a></li>
+                    <li><a id="L21" href="group05/mul_3.html">Таблица умножения на 3</a></li>
+                    <li><a id="L22" href="group05/mul_4.html">Таблица умножения на 4</a></li>
+                    <li><a id="L23" href="group05/mul_5.html">Таблица умножения на 5</a></li>
+                    <li><a id="L24" href="group05/mul_6.html">Таблица умножения на 6</a></li>
+                    <li><a id="L25" href="group05/mul_7.html">Таблица умножения на 7</a></li>
+                    <li><a id="L26" href="group05/mul_8.html">Таблица умножения на 8</a></li>
+                    <li><a id="L27" href="group05/mul_9.html">Таблица умножения на 9</a></li>
+                    <li><a id="L28" href="group05/mul_10.html">Таблица умножения на 10</a></li>
+                    <li><a id="L29" href="group05/mul_11.html">Таблица умножения на 11</a></li>
+                    <li><a id="L30" href="group05/mul_12.html">Таблица умножения на 12</a></li>
                 </ul>
             </li>
         </ul>
@@ -120,6 +156,17 @@
                 this.classList.toggle("caret-down");
             });
         }
+        </script>
+
+        <script>
+            for (let i = 1; i <= 30; i++ ) {
+                let id_str = "L" + i.toString();
+                let elm = document.getElementById(id_str);
+                elm.innerHTML = getQuizByLevelNumber(i).title;
+                elm.addEventListener("click", function(){
+                    localStorage.setItem('runLevel', i)
+                })
+            }
         </script>
 
     </body>

@@ -67,6 +67,27 @@ function getQuizByLevelNumber(levelNum) {
             quiz.timePerProblem = level11.timePerProblem;
             quiz.getProblemsToSolve = level11.getProblemsToSolve;
             break;
+        case 12:
+            quiz.title = level12.title;
+            quiz.timePerProblem = level12.timePerProblem;
+            quiz.getProblemsToSolve = level12.getProblemsToSolve;
+            break;
+        case 13:
+            quiz.title = level13.title;
+            quiz.timePerProblem = level13.timePerProblem;
+            quiz.getProblemsToSolve = level13.getProblemsToSolve;
+            break;
+        case 14:
+            quiz.title = level14.title;
+            quiz.timePerProblem = level14.timePerProblem;
+            quiz.getProblemsToSolve = level14.getProblemsToSolve;
+            break;
+        case 15:
+            quiz.title = level15.title;
+            quiz.timePerProblem = level15.timePerProblem;
+            quiz.getProblemsToSolve = level15.getProblemsToSolve;
+            break;
+                
         default:
             break;                        
     }
