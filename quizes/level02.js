@@ -18,7 +18,7 @@ let level02 = {
             }
         }
         return all;
-        },
+    },
     getProblemsToSolve: function () {
         var all = level02.getAllProblems();
         var selected = getRandomElementsOfAnArray(all, 15);
