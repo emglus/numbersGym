@@ -227,7 +227,7 @@ function completeExercise() {
 	btn1.className = 'button';
 	btn1.innerHTML = 'Содержание';	
 	btn1.onclick = function() {
-		history.back();
+		location.href = 'contents.html'
 	}
 	document.body.appendChild(btn1); 	
 
