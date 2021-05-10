@@ -88,6 +88,84 @@ function getQuizByLevelNumber(levelNum) {
             quiz.getProblemsToSolve = level15.getProblemsToSolve;
             break;
                 
+        case 16:
+            quiz.title = level16.title;
+            quiz.timePerProblem = level16.timePerProblem;
+            quiz.getProblemsToSolve = level16.getProblemsToSolve;
+            break;
+        case 17:
+            quiz.title = level17.title;
+            quiz.timePerProblem = level17.timePerProblem;
+            quiz.getProblemsToSolve = level17.getProblemsToSolve;
+            break;
+        case 18:
+            quiz.title = level18.title;
+            quiz.timePerProblem = level18.timePerProblem;
+            quiz.getProblemsToSolve = level18.getProblemsToSolve;
+            break;
+        case 19:
+            quiz.title = level19.title;
+            quiz.timePerProblem = level19.timePerProblem;
+            quiz.getProblemsToSolve = level19.getProblemsToSolve;
+            break;
+ 
+        case 20:
+            quiz.title = level20.title;
+            quiz.timePerProblem = level20.timePerProblem;
+            quiz.getProblemsToSolve = level20.getProblemsToSolve;
+            break;
+        case 21:
+            quiz.title = level21.title;
+            quiz.timePerProblem = level21.timePerProblem;
+            quiz.getProblemsToSolve = level21.getProblemsToSolve;
+            break;
+        case 22:
+            quiz.title = level22.title;
+            quiz.timePerProblem = level22.timePerProblem;
+            quiz.getProblemsToSolve = level22.getProblemsToSolve;
+            break;
+        case 23:
+            quiz.title = level23.title;
+            quiz.timePerProblem = level23.timePerProblem;
+            quiz.getProblemsToSolve = level23.getProblemsToSolve;
+            break;
+        case 24:
+            quiz.title = level24.title;
+            quiz.timePerProblem = level24.timePerProblem;
+            quiz.getProblemsToSolve = level24.getProblemsToSolve;
+            break;
+        case 25:
+            quiz.title = level25.title;
+            quiz.timePerProblem = level25.timePerProblem;
+            quiz.getProblemsToSolve = level25.getProblemsToSolve;
+            break;
+        case 26:
+            quiz.title = level26.title;
+            quiz.timePerProblem = level26.timePerProblem;
+            quiz.getProblemsToSolve = level26.getProblemsToSolve;
+            break;
+        case 27:
+            quiz.title = level27.title;
+            quiz.timePerProblem = level27.timePerProblem;
+            quiz.getProblemsToSolve = level27.getProblemsToSolve;
+            break;
+        case 28:
+            quiz.title = level28.title;
+            quiz.timePerProblem = level28.timePerProblem;
+            quiz.getProblemsToSolve = level28.getProblemsToSolve;
+            break;
+        case 29:
+            quiz.title = level29.title;
+            quiz.timePerProblem = level29.timePerProblem;
+            quiz.getProblemsToSolve = level29.getProblemsToSolve;
+            break;
+        case 30:
+            quiz.title = level30.title;
+            quiz.timePerProblem = level30.timePerProblem;
+            quiz.getProblemsToSolve = level30.getProblemsToSolve;
+            break;
+                    
+                
         default:
             break;                        
     }
