@@ -6,6 +6,7 @@
         <title>Numbers Gym</title>
         <link rel="stylesheet" href="css/index.css" type="text/css">
         <link rel="stylesheet" href="css/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <style type="text/css">
         </style>
     </head>
@@ -29,54 +30,56 @@
                 <a href="about.html" class="w3-bar-item w3-button">Инструкции</a>
             </div>
         </nav>
-
-
-        <div class="box t1">
-            <h3>Existing members</h3>
-            <table id="memberList">
-                <tr>
-                    <th>Username</th>
-                    <th>Level</th>
-                    <th>Counter</th>
-                </tr>
-            </table>
-            <script>
-                updateMemberList()
-            </script>
-        </div>
-        <div class="box t2">
-            <h3>Register new member</h3>
-            <div>
-                <div class="row">
-                    <label for="username">Username:</label>
-                </div>
-                <div class="row">
-                    <input type="text" name="username" id="username">
-                </div>
-                <div class="row">
-                    <button id="add" type="submit" class="ng-button-small-red">Register new member</button>
-                </div>
+        <main class="w3-margin">
+            <div class="box t1">
+                <h3>Участники</h3>
+                <table id="memberList">
+                    <tr>
+                        <th>Имя</th>
+                        <th>Уровень</th>
+                    </tr>
+                </table>
                 <script>
-                    let add = document.getElementById("add")
-                    add.addEventListener("click", function() {
-                        let inp = document.getElementById("username")
-                        let name1 = inp.value
-                        if (name1.length === 0 ) {
-                            alert("Please enter a name")
-                        } else {
-                            if (memberNameAlreadyExists(name1)) {
-                                alert("Name " + name1 + " is already present\nEnter another name")
-                            } else {
-                                addMember(name1)
-                                updateMemberList()
-                            }
-                        }
-                    })
+                    updateMemberList()
                 </script>
             </div>
-        </div>
+            <div class="box t2">
+                <h3>Регистрация новых участников</h3>
+                <div>
+                    <div class="row">
+                        <label for="username">Имя:</label>
+                    </div>
+                    <div class="row">
+                        <input type="text" name="username" id="username">
+                    </div>
+                    <div class="row">
+                        <button id="add" type="submit" class="ng-button-small-red">Зарегистрируйся</button>
+                    </div>
+                    <script>
+                        let add = document.getElementById("add")
+                        add.addEventListener("click", function() {
+                            let inp = document.getElementById("username")
+                            let name1 = inp.value
+                            if (name1.length === 0 ) {
+                                alert("Please enter a name")
+                            } else {
+                                if (memberNameAlreadyExists(name1)) {
+                                    alert("Name " + name1 + " is already present\nEnter another name")
+                                } else {
+                                    addMember(name1)
+                                    updateMemberList()
+                                }
+                            }
+                        })
+                    </script>
+                </div>
+            </div>
+    
+        </main>
+
         <script>
             // add event listeners to record the name of curret member
+            // when the member is selected in the left panel
             if (members.length > 0) {
                 var buttons = document.getElementsByClassName("ng-button-small")
                 for (let i = 0; i < buttons.length; i++) {
