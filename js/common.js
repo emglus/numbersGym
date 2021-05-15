@@ -30,6 +30,15 @@ function doQuiz() {
 	currentCounter = getCounterByMemberName(currentName);
 	runLevel = parseInt(localStorage.getItem('runLevel'))
 
+	if (currentName == null && isNaN(runLevel)) {
+		var hx = document.createElement('p');
+		hx.className = 'h1';
+		hx.id = "header1";
+		hx.innerHTML = 'Пожалуйста выбери участника или урок'
+		document.body.appendChild(hx); 
+		return 
+	}
+
 	let q = getQuizByLevelNumber(runLevel);
 	
 	problems = q.getProblemsToSolve();
