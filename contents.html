@@ -115,69 +115,58 @@
 
         <script src="js/quiz.js" type="text/javascript"></script>
 
-        <script>
-            currentName = localStorage.getItem('current');
-            currentLevel = getLevelByMemberName(currentName);
-            runLevel = parseInt(localStorage.getItem('runLevel'))
+        <main class="w3-margin"><h4>
+            <ul id="myUL">
+                <li><span class="caret">Сложение и вычитание от 1 до 10</span>
+                    <ul class="nested">
+                        <li><a id="L1" href="quiz.html">Числа и цифры</a></li>
+                        <li><a id="L2" href="quiz.html">Сложение чисел от 1 до 6</a></li>
+                        <li><a id="L3" href="quiz.html">Сложение чисел от 1 до 8</a></li>
+                        <li><a id="L4" href="quiz.html">Сложение чисел от 1 до 10</a></li>
+                        <li><a id="L5" href="quiz.html">Друзья двойки, тройки, четвёрки и пятерки</a></li>
+                        <li><a id="L6" href="quiz.html">Друзья шестерки и семёрки</a></li>
+                        <li><a id="L7" href="quiz.html">Друзья восьмёрки и девятки</a></li>
+                        <li><a id="L8" href="quiz.html">Друзья десятки</a></li>
+                        <li><a id="L9" href="quiz.html">Сложение от 1 до 10: Найди пропущенное число</a></li>
+                        <li><a id="L10" href="quiz.html">Вычитание чисел от 1 до 10</a></li>
+                        <li><a id="L11" href="quiz.html">Вычитание от 1 до 10: Найди пропущенное число</a></li>        
+                    </ul>
+                </li>
+                <li><span class="caret">Сложение и вычитание до 20</span>
+                    <ul class="nested">
+                        <li><a id="L12" href="quiz.html">Сложение чисел от 1 до 20</a></li>
+                        <li><a id="L13" href="quiz.html">Сложение от 1 до 20: Найди пропущенное число</a></li>
+                        <li><a id="L14" href="quiz.html">Вычитание чисел от 1 до 20</a></li>
+                        <li><a id="L15" href="quiz.html">Вычитание от 1 до 20: Найди пропущенное число</a></li>
+                    </ul>
+                </li>
+                <li><span class="caret">Сложение и вычитание до 100</span>
+                    <ul class="nested">
+                        <li><a id="L16" href="quiz.html">Сложение чисел от 1 до 100</a></li>
+                        <li><a id="L17" href="quiz.html">Сложение от 1 до 100: Найди пропущенное число</a></li>
+                        <li><a id="L18" href="quiz.html">Вычитание чисел от 1 до 100</a></li>
+                        <li><a id="L19" href="quiz.html">Вычитание от 1 до 100: Найди пропущенное число</a></li>
+                    </ul>
+                </li>
+                <li><span class="caret">Таблицы умножения от 2 до 12</span>
+                    <ul class="nested">
+                        <li><a id="L20" href="quiz.html">Таблица умножения на 2</a></li>
+                        <li><a id="L21" href="quiz.html">Таблица умножения на 3</a></li>
+                        <li><a id="L22" href="quiz.html">Таблица умножения на 4</a></li>
+                        <li><a id="L23" href="quiz.html">Таблица умножения на 5</a></li>
+                        <li><a id="L24" href="quiz.html">Таблица умножения на 6</a></li>
+                        <li><a id="L25" href="quiz.html">Таблица умножения на 7</a></li>
+                        <li><a id="L26" href="quiz.html">Таблица умножения на 8</a></li>
+                        <li><a id="L27" href="quiz.html">Таблица умножения на 9</a></li>
+                        <li><a id="L28" href="quiz.html">Таблица умножения на 10</a></li>
+                        <li><a id="L29" href="quiz.html">Таблица умножения на 11</a></li>
+                        <li><a id="L30" href="quiz.html">Таблица умножения на 12</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </h4>
+        </main>
 
-            //let q = getQuizByLevelNumber(runLevel);
-
-            var info1 = document.createElement('p');
-            info1.className = 'h1';
-            info1.innerHTML = "Ученик: " + currentName + " Урок: " + currentLevel;
-            info1.id = "info1";
-            document.body.appendChild(info1); 
-        </script>
-
-        <ul id="myUL">
-            <li><span class="caret">Сложение и вычитание от 1 до 10</span>
-                <ul class="nested">
-                    <li><a id="L1" href="quiz.html">Числа и цифры</a></li>
-                    <li><a id="L2" href="quiz.html">Сложение чисел от 1 до 6</a></li>
-                    <li><a id="L3" href="quiz.html">Сложение чисел от 1 до 8</a></li>
-                    <li><a id="L4" href="quiz.html">Сложение чисел от 1 до 10</a></li>
-                    <li><a id="L5" href="quiz.html">Друзья двойки, тройки, четвёрки и пятерки</a></li>
-                    <li><a id="L6" href="quiz.html">Друзья шестерки и семёрки</a></li>
-                    <li><a id="L7" href="quiz.html">Друзья восьмёрки и девятки</a></li>
-                    <li><a id="L8" href="quiz.html">Друзья десятки</a></li>
-                    <li><a id="L9" href="quiz.html">Сложение от 1 до 10: Найди пропущенное число</a></li>
-                    <li><a id="L10" href="quiz.html">Вычитание чисел от 1 до 10</a></li>
-                    <li><a id="L11" href="quiz.html">Вычитание от 1 до 10: Найди пропущенное число</a></li>        
-                </ul>
-            </li>
-            <li><span class="caret">Сложение и вычитание до 20</span>
-                <ul class="nested">
-                    <li><a id="L12" href="quiz.html">Сложение чисел от 1 до 20</a></li>
-                    <li><a id="L13" href="quiz.html">Сложение от 1 до 20: Найди пропущенное число</a></li>
-                    <li><a id="L14" href="quiz.html">Вычитание чисел от 1 до 20</a></li>
-                    <li><a id="L15" href="quiz.html">Вычитание от 1 до 20: Найди пропущенное число</a></li>
-                </ul>
-            </li>
-            <li><span class="caret">Сложение и вычитание до 100</span>
-                <ul class="nested">
-                    <li><a id="L16" href="quiz.html">Сложение чисел от 1 до 100</a></li>
-                    <li><a id="L17" href="quiz.html">Сложение от 1 до 100: Найди пропущенное число</a></li>
-                    <li><a id="L18" href="quiz.html">Вычитание чисел от 1 до 100</a></li>
-                    <li><a id="L19" href="quiz.html">Вычитание от 1 до 100: Найди пропущенное число</a></li>
-                </ul>
-            </li>
-            <li><span class="caret">Таблицы умножения от 2 до 12</span>
-                <ul class="nested">
-                    <li><a id="L20" href="quiz.html">Таблица умножения на 2</a></li>
-                    <li><a id="L21" href="quiz.html">Таблица умножения на 3</a></li>
-                    <li><a id="L22" href="quiz.html">Таблица умножения на 4</a></li>
-                    <li><a id="L23" href="quiz.html">Таблица умножения на 5</a></li>
-                    <li><a id="L24" href="quiz.html">Таблица умножения на 6</a></li>
-                    <li><a id="L25" href="quiz.html">Таблица умножения на 7</a></li>
-                    <li><a id="L26" href="quiz.html">Таблица умножения на 8</a></li>
-                    <li><a id="L27" href="quiz.html">Таблица умножения на 9</a></li>
-                    <li><a id="L28" href="quiz.html">Таблица умножения на 10</a></li>
-                    <li><a id="L29" href="quiz.html">Таблица умножения на 11</a></li>
-                    <li><a id="L30" href="quiz.html">Таблица умножения на 12</a></li>
-                </ul>
-            </li>
-        </ul>
-          
         <script>
         var toggler = document.getElementsByClassName("caret");
         var i;
