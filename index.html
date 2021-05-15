@@ -61,10 +61,12 @@
                             let inp = document.getElementById("username")
                             let name1 = inp.value
                             if (name1.length === 0 ) {
-                                alert("Please enter a name")
-                            } else {
+                                alert("Пожалуйста введите имя участника")
+                            } else if   (name1.length > 12 ) {
+                                alert("Максимум 12 букв")
+                            } else{
                                 if (memberNameAlreadyExists(name1)) {
-                                    alert("Name " + name1 + " is already present\nEnter another name")
+                                    alert("Имя участника " + name1 + " уже введено\nВведите другое имя")
                                 } else {
                                     addMember(name1)
                                     updateMemberList()
