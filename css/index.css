@@ -8,7 +8,7 @@
   color: #fff;
   background-color: #4CAF50;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow: 0 5px #999;
   width: 160px;
 }
@@ -31,7 +31,7 @@
   color: #fff;
   background-color: #af634c;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow: 0 5px #999;
 }
 
@@ -43,49 +43,32 @@
   transform: translateY(4px);
 }
 
-body
-    {
-    width: 100%;
-		font-family: arial;
-		font-size: 24px;
-		}    
+.ng-box {
+    width: 400px;
+    padding: 10px;
+    border: 2px solid rgb(66, 65, 65);
+    border-radius: 6px;
+    margin: 0 16px 0 0;
+    float: left;
+    text-align: justify;
+}
 
-    h1 {
-      margin: 6px;
-    }
+th, td {
+    padding-top: 2px;
+    padding-right: 30px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+}
 
-    .box {
-        width: 400px;
-        padding: 10px;
-        border: 2px solid rgb(66, 65, 65);
-        border-radius: 10px;
-        margin: 6px;
+input, button {
+  font-size: 20px;
+  margin: 4px;
+  width: 240px;
+}
 
-        float: left;
-        text-align: justify;
-    }
-
-    .t1 {
-        background-color: rgb(184, 243, 184);
-    }
-    .t2 {
-        background-color: rgb(240, 199, 199);
-    }
-    th, td {
-        padding-top: 2px;
-        padding-right: 30px;
-        padding-bottom: 2px;
-        padding-left: 2px;
-    }
-    
-    input, button {
-      font-size: 20px;
-      margin: 4px;
-      width: 240px;
-    }
-
-    input {
-      border-radius: 10px;
-    }
+input {
+  border-radius: 6px;
+  margin: 5px 2px;
+}
 
 
