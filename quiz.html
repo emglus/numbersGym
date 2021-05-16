@@ -15,6 +15,7 @@
     <body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="js/members.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script>
             initMembers()
         </script>
@@ -32,6 +33,14 @@
                 <a href="about.html" class="w3-bar-item w3-button">Инструкции</a>
             </div>
         </nav>
+        <div class="w3-margin">
+            <div class="w3-bar w3-green">
+                <div id="status-1" class="w3-bar-item">London</div>
+                <div id="status-2" class="w3-bar-item">Paris</div>
+            </div>
+        </div>
+        <main class="w3-margin">
+        </main>
 
         <script src="quizes/level01.js" type="text/javascript"></script>
         <script src="quizes/level02.js" type="text/javascript"></script>
@@ -68,6 +77,15 @@
         <script src="quizes/level30.js" type="text/javascript"></script>
 
         <script src="js/quiz.js" type="text/javascript"></script>
+        <script>
+            function displayLevel(level, counter) {
+               let part1 = '<span class="w3-badge">' + level.toString() + '</span>'
+                for (let i = 0; i < counter; i++) {
+                    part1 += '<i class="material-icons w3-small">star</i>'
+                }
+                return part1;
+            }
+        </script>
         <script src="js/common.js" type="text/javascript"></script>
         
         

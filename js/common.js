@@ -30,13 +30,18 @@ function doQuiz() {
 	currentCounter = getCounterByMemberName(currentName);
 	runLevel = parseInt(localStorage.getItem('runLevel'))
 
+	let st1 = document.getElementById("status-1")
+	let st2 = document.getElementById("status-2")
+
 	if (currentName == null && isNaN(runLevel)) {
-		var hx = document.createElement('p');
-		hx.className = 'h1';
-		hx.id = "header1";
-		hx.innerHTML = 'Пожалуйста выбери участника или урок'
-		document.body.appendChild(hx); 
+		st1.innerHTML = 'Пожалуйста выбери участника или урок'
+		st2.innerHTML = ''
 		return 
+	}
+	if (currentName != null) {
+		st1.innerHTML = currentName + " " + displayLevel(currentLevel, currentCounter);
+	} else {
+		st1.innerHTML = ""
 	}
 
 	let q = getQuizByLevelNumber(runLevel);
@@ -44,29 +49,18 @@ function doQuiz() {
 	problems = q.getProblemsToSolve();
 	limit = problems.length;
 	timePerProblem = q.timePerProblem;
-	
-	var info1 = document.createElement('p');
-	info1.className = 'h1';
-	info1.innerHTML = "Ученик: " + currentName + " Урок: " + currentLevel + " Очки: " + currentCounter;
-	info1.id = "info1";
-	document.body.appendChild(info1); 
-	
-	var h1 = document.createElement('p');
-	h1.className = 'h1';
-	h1.id = "header1";
-	h1.innerHTML = q.title;
-	document.title = q.title;
-	document.body.appendChild(h1); 
+	st2.innerHTML = q.title;
 	
 	var h2 = document.createElement('p');
 	h2.innerHTML = "Реши " + limit + russian1(limit) + " за " + limit*timePerProblem + russian2(limit*timePerProblem);
 	h2.id = "header2";
-	document.body.appendChild(h2); 
+	let main = document.body.getElementsByTagName("main")
+	main[0].appendChild(h2); 
 	
 	var h3 = document.createElement('p');
 	h3.id = "header3";
 	h3.innerHTML = "На старт, внимание...";
-	document.body.appendChild(h3); 
+	main[0].appendChild(h3); 
 	
 	var btn0 = document.createElement('button');
 	btn0.id = 'btn0';
@@ -75,15 +69,15 @@ function doQuiz() {
 	btn0.onclick = function() {
 		startTest();
 	}
-	document.body.appendChild(btn0); 	
+	main[0].appendChild(btn0); 	
 		
 	var buttons = document.createElement('div');
 	buttons.id = "btns";
-	document.body.appendChild(buttons); 
+	main[0].appendChild(buttons); 
 	
 	var table = document.createElement('table');
 	table.id = "table";
-	document.body.appendChild(table); 
+	main[0].appendChild(table); 
 	
 	// Here ends definition of the page elements.
 	// The action starts when the user presses btn0
@@ -103,7 +97,7 @@ function startTest() {
 
 	removeElementById("header3");
 	//removeElementById("header2");
-	removeElementById("header1");
+	//removeElementById("header1");
 	
 	start = Date.now();
 	setTimeout(ctrF, 1000);
@@ -179,6 +173,7 @@ function numberButtonPressed(n) {
 }
 
 function completeExercise() {
+	let main = document.body.getElementsByTagName("main")
     let count = 0;
 	for (var i = 0; i < limit; i++) {
 		var ex = problems[i];
@@ -214,7 +209,7 @@ function completeExercise() {
 		msg = "Молодец!";
 		f1.innerHTML = msg;
 		f1.className = "green";
-		document.body.appendChild(f1);
+		main[0].appendChild(f1);
 		if (currentLevel === runLevel) {
 			advanceMember(currentName)
 		}
@@ -229,16 +224,7 @@ function completeExercise() {
 	msg += " за " + delta + russian2(delta);
 	
 	f2.innerHTML = msg;
-	document.body.appendChild(f2);
-
-	var btn1 = document.createElement('button');
-	btn1.id = 'btn1';
-	btn1.className = 'button';
-	btn1.innerHTML = 'Содержание';	
-	btn1.onclick = function() {
-		location.href = 'contents.html'
-	}
-	document.body.appendChild(btn1); 	
+	main[0].appendChild(f2); 
 
 	var btn2 = document.createElement('button');
 	btn2.id = 'btn2';
@@ -247,7 +233,7 @@ function completeExercise() {
 	btn2.onclick = function() {
 		location = location;
 	}
-	document.body.appendChild(btn2); 	
+	main[0].appendChild(btn2); 	
 
 	var btn3 = document.createElement('button');
 	btn3.id = 'btn3';
@@ -259,7 +245,7 @@ function completeExercise() {
 		localStorage.setItem('runLevel', currentLevel)
 		location = location;
 	}
-	document.body.appendChild(btn3); 	
+	main[0].appendChild(btn3); 	
 
 }
 
