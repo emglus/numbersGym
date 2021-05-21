@@ -13,15 +13,17 @@ function getQuizByLevelNumber(levelNum) {
 
     switch (levelNum) {
         case 1:
-            quiz.title = level01.title;
-            quiz.timePerProblem = level01.timePerProblem;
-            quiz.getProblemsToSolve = level01.getProblemsToSolve;
-            break;
+            // quiz.title = level01.title;
+            // quiz.timePerProblem = level01.timePerProblem;
+            // quiz.getProblemsToSolve = level01.getProblemsToSolve;
+            // break;
+            return level01;
         case 2:
-            quiz.title = level02.title;
-            quiz.timePerProblem = level02.timePerProblem;
-            quiz.getProblemsToSolve = level02.getProblemsToSolve;
-            break;
+            // quiz.title = level02.title;
+            // quiz.timePerProblem = level02.timePerProblem;
+            // quiz.getProblemsToSolve = level02.getProblemsToSolve;
+            // break;
+            return level02;
         case 3:
             quiz.title = level03.title;
             quiz.timePerProblem = level03.timePerProblem;
