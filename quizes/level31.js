@@ -3,7 +3,8 @@ let level31 = {
     timePerProblem: 6,
 
     isPrime: function(num) {
-        for (let i = 2; i*i < num; i++) {
+        if (num < 2) { return false; }
+        for (let i = 2; i*i <= num; i++) {
             if (num % i === 0) { return false; }
         }
         return true;
@@ -17,17 +18,16 @@ let level31 = {
             first += ((i - 1) * 10).toString()
             first += " до "
             first += (i * 10).toString()
+            first += ': '
             line.push(first)
             let second = ''
-            for (let j = (i-1)*10; j <= i+10; j++) {
+            for (let j = (i-1)*10; j <= i*10; j++) {
                 if (level31.isPrime(j)) {
-                    if (j != (i-1)*10) {
-                        second += ','
-                    }
                     second += j.toString()
+                    second += ','
                 }
             }
-            line.push('_' + second)
+            line.push('_' + second.substr(0, second.length-1))
             all.push(line);
         }
         return all;
