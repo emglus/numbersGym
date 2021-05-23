@@ -13,7 +13,7 @@ var runLevel;
 
 //---------------------------------------------------
 
-doQuiz();
+prepareQuiz();
 
 
 //
@@ -21,7 +21,7 @@ doQuiz();
 //
 
 
-function doQuiz() {
+function prepareQuiz() {
 
 	initMembers();
 	
@@ -51,18 +51,18 @@ function doQuiz() {
 	timePerProblem = q.timePerProblem;
 	st2.innerHTML = q.title;
 	
-	var h2 = document.createElement('p');
+	let h2 = document.createElement('p');
 	h2.innerHTML = "Реши " + limit + russian1(limit) + " за " + limit*timePerProblem + russian2(limit*timePerProblem);
 	h2.id = "header2";
 	let main = document.body.getElementsByTagName("main")
 	main[0].appendChild(h2); 
 	
-	var h3 = document.createElement('p');
+	let h3 = document.createElement('p');
 	h3.id = "header3";
 	h3.innerHTML = "На старт, внимание...";
 	main[0].appendChild(h3); 
 	
-	var btn0 = document.createElement('button');
+	let btn0 = document.createElement('button');
 	btn0.id = 'btn0';
 	btn0.className = 'button';
 	btn0.innerHTML = 'Марш!';	
@@ -71,34 +71,21 @@ function doQuiz() {
 	}
 	main[0].appendChild(btn0); 	
 		
-	var buttons = document.createElement('div');
-	buttons.id = "btns";
-	main[0].appendChild(buttons); 
-	
-	var table = document.createElement('table');
+	let table = document.createElement('table');
 	table.id = "table";
 	main[0].appendChild(table); 
-	
-	// Here ends definition of the page elements.
-	// The action starts when the user presses btn0
 }
 
 function startTest() {
-	//problems = getProblemsToSolve();
-	//limit = problems.length;
-
-	currentRow++;		// table rows start from 1 
+	currentRow++;
 	addRow(currentRow);
 	
-	//removeElementById("btn0");
 	timer = problems.length * timePerProblem;
 	btn0.innerHTML = timer;	
 	btn0.onclick = function() {} 	// do nothing
 
 	removeElementById("header3");
-	//removeElementById("header2");
-	//removeElementById("header1");
-	
+
 	start = Date.now();
 	setTimeout(ctrF, 1000);
 }
@@ -111,36 +98,37 @@ function ctrF() {
 	} 
 }
 
-
 // n starts from 1 and continues to limit, for example, 15
 function addRow(n) {
+	let inpn2	// variable used by jQuery to focus
+
 	if (n <= limit) {
-		var row = document.createElement('tr');
+		let row = document.createElement('tr');
 		row.id = "row" + n;
 
-		var ex = problems[n - 1];
-		var count = ex.length;
+		let ex = problems[n - 1];
+		let count = ex.length;
 
-		for (var i = 0; i < count; i++) {
+		for (let i = 0; i < count; i++) {
 			if (ex[i].startsWith('_')) {
-				var c5 = document.createElement("td");
+				let c5 = document.createElement("td");
 				c5.id = "result" + n;
 				c5.className = "p09";
 				row.appendChild(c5);
 		
-				var inp = document.createElement("input");
+				let inp = document.createElement("input");
 				inp.type = "text";
 				
-				var inpn = "inp" + n; 
+				let inpn = "inp" + n; 
 				inp.className = inpn + " inp111";
 				inp.id = inpn;
-				var inpn2 = '#' + inpn;
+				inpn2 = '#' + inpn;
 				c5.appendChild(inp);
 		
-				$('body').on('keydown', '#' + inpn, function (e) {
-					var key = e.which;
+				$('body').on('keydown', inpn2, function (e) {
+					let key = e.which;
 					if (key === 13) {
-						var tt = document.getElementById(inpn).value;
+						let tt = document.getElementById(inpn).value;
 						if(tt.length > 0) {	// empty strings are not accepted
 							removeElementById(inpn);
 							numberButtonPressed(tt);
@@ -149,7 +137,7 @@ function addRow(n) {
 					}
 				});
 			} else {
-				var c1 = document.createElement("td");
+				let c1 = document.createElement("td");
 				c1.innerHTML = ex[i];
 				row.appendChild(c1);		
 			}
@@ -161,7 +149,7 @@ function addRow(n) {
 }
 
 function numberButtonPressed(n) {
-    var tmpId = "result" + currentRow;
+    let tmpId = "result" + currentRow;
 	document.getElementById(tmpId).innerHTML = n;
 	if (currentRow < limit) {
 		currentRow++;
@@ -175,11 +163,11 @@ function numberButtonPressed(n) {
 function completeExercise() {
 	let main = document.body.getElementsByTagName("main")
     let count = 0;
-	for (var i = 0; i < limit; i++) {
-		var ex = problems[i];
-		var exlen = ex.length;
-		var expected = '';
-		for (var j = 0; j < exlen; j++) {
+	for (let i = 0; i < limit; i++) {
+		let ex = problems[i];
+		let exlen = ex.length;
+		let expected = '';
+		for (let j = 0; j < exlen; j++) {
 			if (ex[j].startsWith('_')) {
 				expected = ex[j];
 				break;
@@ -187,11 +175,11 @@ function completeExercise() {
 		}
 		expected = expected.substring(1);
 
-		var resultId = i + 1;
+		let resultId = i + 1;
 		console.log(resultId);
 		resultId = "result" + resultId.toString();
 		console.log(resultId);
-		var t = document.getElementById(resultId);
+		let t = document.getElementById(resultId);
 		console.log(t);
 		if (t.innerHTML === expected) {
 			count++;
@@ -201,11 +189,11 @@ function completeExercise() {
 		}
 	}
 
-	var delta = Math.floor((finish - start) / 1000);
-	var msg = '';
+	let delta = Math.floor((finish - start) / 1000);
+	let msg = '';
 
 	if (count === limit && delta <= limit * timePerProblem) {
-		var f1 = document.createElement('p');
+		let f1 = document.createElement('p');
 		msg = "Молодец!";
 		f1.innerHTML = msg;
 		f1.className = "green";
@@ -219,14 +207,14 @@ function completeExercise() {
 		}
 	}
 
-	var f2 = document.createElement('p');
+	let f2 = document.createElement('p');
 	msg = "Ты решил " + count + russian1(count);
 	msg += " за " + delta + russian2(delta);
 	
 	f2.innerHTML = msg;
 	main[0].appendChild(f2); 
 
-	var btn2 = document.createElement('button');
+	let btn2 = document.createElement('button');
 	btn2.id = 'btn2';
 	btn2.className = 'button';
 	btn2.innerHTML = 'Повторить';	
@@ -235,7 +223,7 @@ function completeExercise() {
 	}
 	main[0].appendChild(btn2); 	
 
-	var btn3 = document.createElement('button');
+	let btn3 = document.createElement('button');
 	btn3.id = 'btn3';
 	btn3.className = 'button';
 	btn3.innerHTML = 'Дальше';	
@@ -259,7 +247,7 @@ function russian2(sec) {
 	if (sec >= 10 && sec <=20) {
 		return ' секунд';
 	} else {
-		var units = sec % 10;
+		let units = sec % 10;
 		if (units === 1) return ' секунду';
 		else if (units >= 2 && units <= 4) return ' секунды';
 		else return ' секунд';
@@ -267,7 +255,7 @@ function russian2(sec) {
 }
 
 function removeElementById(id) {
-	var elem = document.getElementById(id);
+	let elem = document.getElementById(id);
 	elem.parentNode.removeChild(elem);
 }
 
@@ -276,13 +264,13 @@ function removeElementById(id) {
 // if 0 to max-1 is a range of index values in an array that contains max elements,
 // we can use this function to select count elements from the array.
 function getRandomPick(range, count) {
-    var source = [];
-    var destination = [];
-    for (var i = 0; i < range; i++) {
+    let source = [];
+    let destination = [];
+    for (let i = 0; i < range; i++) {
         source.push(i);
     }
     for (i = 0; i < count; i++) {
-       var j = Math.floor(Math.random() * source.length);
+       let j = Math.floor(Math.random() * source.length);
        destination.push(source[j]);
        source.splice(j, 1); 
     }
@@ -291,25 +279,20 @@ function getRandomPick(range, count) {
 
 // generic
 function getRandomElementsOfAnArray(ar, count) {
-    var randomSelection = [];
-    var t = getRandomPick(ar.length, count);
-    for (var i = 0; i < t.length; i++) {
+    let randomSelection = [];
+    let t = getRandomPick(ar.length, count);
+    for (let i = 0; i < t.length; i++) {
         randomSelection.push(ar[t[i]]);
     }
     return randomSelection;
 }
 
-/*
-function getProblemsToSolve() {
-    var problems = [];
-    var prob = [];
-    prob.push('2', '+', '2', '=', '_4');
-    problems.push(prob);
+function displayLevel(level, counter) {
+	let part1 = '<span class="w3-badge">' + level.toString() + '</span>'
+	 for (let i = 0; i < counter; i++) {
+		 part1 += '<i class="material-icons w3-small">star</i>'
+	 }
+	 return part1;
+ }
 
-    prob = [];
-    prob.push('3', '+', '_3', '=', '6');
-    problems.push(prob);
 
-    return problems;
-}
-*/
