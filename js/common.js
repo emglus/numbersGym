@@ -1,9 +1,10 @@
-var timePerProblem = 2;
 var currentRow = 0;	// current problem. 0 before we stared, 1 to limit afterwards
 var start;			// time the Start button is pressed
 var finish;			// time the last answer is given
 var problems = [];					// these are the problems to solve
 var limit = problems.length;		// limit to number of exercises
+var timePerProblem = 2;
+var inputwidth = 40;
 var timer = 0;
 
 var currentName;
@@ -50,6 +51,7 @@ function prepareQuiz() {
 	limit = problems.length;
 	timePerProblem = q.timePerProblem;
 	st2.innerHTML = q.title;
+	inputwidth = q.inputwidth;
 	
 	let h2 = document.createElement('p');
 	h2.innerHTML = "Реши " + limit + russian1(limit) + " за " + limit*timePerProblem + russian2(limit*timePerProblem);
@@ -123,6 +125,8 @@ function addRow(n) {
 				inp.className = inpn + " inp111";
 				inp.id = inpn;
 				inpn2 = '#' + inpn;
+
+				inp.style.width = inputwidth + 'px';
 				c5.appendChild(inp);
 		
 				$('body').on('keydown', inpn2, function (e) {
@@ -277,7 +281,6 @@ function getRandomPick(range, count) {
     return destination;
 }
 
-// generic
 function getRandomElementsOfAnArray(ar, count) {
     let randomSelection = [];
     let t = getRandomPick(ar.length, count);

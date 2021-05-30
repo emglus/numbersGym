@@ -1,6 +1,7 @@
 let level31 = {
     title: "Урок 31: Простые числа до 100",
     timePerProblem: 6,
+    inputwidth: 160,
 
     isPrime: function(num) {
         if (num < 2) { return false; }
