@@ -1,15 +1,17 @@
 let level30 = {
     title: "Урок 30: Таблица умножения на 12",
     timePerProblem: 3,
+    inputwidth: 60,
+
     getAllProblems: function() {
         var all = [];
         for (var i = 1; i <= 12; i++) {
             var tmp = [];
             tmp.push(i.toString());
             tmp.push('x');
-            tmp.push('11');
+            tmp.push('12');
             tmp.push('=');
-            var s = i * 11;
+            var s = i * 12;
             tmp.push('_' + s.toString());
             all.push(tmp);
         }

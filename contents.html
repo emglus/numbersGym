@@ -114,6 +114,10 @@
         <script src="quizes/level30.js" type="text/javascript"></script>
 
         <script src="quizes/level31.js" type="text/javascript"></script>
+        <script src="quizes/level32.js" type="text/javascript"></script>
+        <script src="quizes/level33.js" type="text/javascript"></script>
+
+        <script src="quizes/level34.js" type="text/javascript"></script>
 
         <script src="js/quiz.js" type="text/javascript"></script>
 
@@ -165,9 +169,16 @@
                         <li><a id="L30" href="quiz.html">Таблица умножения на 12</a></li>
                     </ul>
                 </li>
-                <li><span class="caret">Простые числа</span>
+                <li><span class="caret">Умножение и деление до 144</span>
                     <ul class="nested">
                         <li><a id="L31" href="quiz.html">sss</a></li>
+                        <li><a id="L32" href="quiz.html">sss</a></li>
+                        <li><a id="L33" href="quiz.html">sss</a></li>
+                    </ul>
+                </li>
+                <li><span class="caret">Простые числа</span>
+                    <ul class="nested">
+                        <li><a id="L34" href="quiz.html">sss</a></li>
                     </ul>
                 </li>
             </ul>
@@ -187,7 +198,7 @@
         </script>
 
         <script>
-            for (let i = 1; i <= 31; i++ ) {
+            for (let i = 1; i <= 34; i++ ) {
                 let id_str = "L" + i.toString();
                 let elm = document.getElementById(id_str);
                 elm.innerHTML = getQuizByLevelNumber(i).title;

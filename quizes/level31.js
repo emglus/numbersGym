@@ -1,43 +1,29 @@
 let level31 = {
-    title: "Урок 31: Простые числа до 100",
-    timePerProblem: 6,
-    inputwidth: 160,
-
-    isPrime: function(num) {
-        if (num < 2) { return false; }
-        for (let i = 2; i*i <= num; i++) {
-            if (num % i === 0) { return false; }
-        }
-        return true;
-    },
+    title: "Урок 31: Умножение чисел от 1 до 144",
+    timePerProblem: 3,
+    inputwidth: 60,
 
     getAllProblems: function() {
-        let all = [];
-        for (let i = 1; i <= 10; i++) {
-            let line = [];
-            let first = "Простые числа от "
-            first += ((i - 1) * 10).toString()
-            first += " до "
-            first += (i * 10).toString()
-            first += ': '
-            line.push(first)
-            let second = ''
-            for (let j = (i-1)*10; j <= i*10; j++) {
-                if (level31.isPrime(j)) {
-                    second += j.toString()
-                    second += ','
-                }
+        var all = [];
+        for (var i = 2; i <= 12; i++) {
+            for (var j = 2; j <= 12; j++) {
+                var tmp = [];
+                tmp.push(i.toString());
+                tmp.push('x');
+                tmp.push(j.toString());
+                tmp.push('=');
+                var s = i * j;
+                tmp.push('_' + s.toString());
+                all.push(tmp);
             }
-            line.push('_' + second.substr(0, second.length-1))
-            all.push(line);
         }
         return all;
     },
 
     // specific
     getProblemsToSolve: function() {
-        let all = level31.getAllProblems();
-        let selected = getRandomElementsOfAnArray(all, all.length);
+        var all = level31.getAllProblems();
+        var selected = getRandomElementsOfAnArray(all, 15);
         return selected;
     }
 }

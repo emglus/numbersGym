@@ -1,6 +1,8 @@
 let level29 = {
     title: "Урок 29: Таблица умножения на 11",
     timePerProblem: 3,
+    inputwidth: 60,
+
     getAllProblems: function() {
         var all = [];
         for (var i = 1; i <= 12; i++) {
