@@ -1,19 +1,18 @@
-let level34 = {
-    title: "Урок 34: Умножение чисел до 200",
-    timePerProblem: 5,
-    inputwidth: 60,
+let level35 = {
+    title: "Урок 35: Деление чисел до 200",
+    timePerProblem: 6,
 
     getAllProblems: function() {
         var all = [];
         for (var i = 2; i <= 100; i++) {
             for (var j = 2; j <= (200 / i); j++) {
-                var tmp = [];
-                tmp.push(i.toString());
-                tmp.push('x');
-                tmp.push(j.toString());
-                tmp.push('=');
                 var s = i * j;
-                tmp.push('_' + s.toString());
+                var tmp = [];
+                tmp.push(s.toString());
+                tmp.push('/');
+                tmp.push(i.toString());
+                tmp.push('=');
+                tmp.push('_' + j.toString());
                 all.push(tmp);
             }
         }
@@ -22,7 +21,7 @@ let level34 = {
 
     // specific
     getProblemsToSolve: function() {
-        var all = level34.getAllProblems();
+        var all = level35.getAllProblems();
         var selected = getRandomElementsOfAnArray(all, 15);
         return selected;
     }
