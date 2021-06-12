@@ -1,15 +1,7 @@
 let level37 = {
     title: "Урок 37: Простые числа до 100",
-    timePerProblem: 6,
+    timePerProblem: 8,
     inputwidth: 160,
-
-    isPrime: function(num) {
-        if (num < 2) { return false; }
-        for (let i = 2; i*i <= num; i++) {
-            if (num % i === 0) { return false; }
-        }
-        return true;
-    },
 
     getAllProblems: function() {
         let all = [];
@@ -23,7 +15,7 @@ let level37 = {
             line.push(first)
             let second = ''
             for (let j = (i-1)*10; j <= i*10; j++) {
-                if (level37.isPrime(j)) {
+                if (isPrime(j)) {
                     second += j.toString()
                     second += ','
                 }
