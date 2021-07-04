@@ -74,6 +74,8 @@ function getQuizByLevelNumber(levelNum) {
             return level36;
         case 37:
             return level37;
+        case 38:
+            return level38;
         default:
             return null;
     }
