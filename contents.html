@@ -128,7 +128,7 @@
 
         <main class="w3-margin"><h4>
             <ul id="myUL">
-                <li><span class="caret">Сложение и вычитание от 1 до 10</span>
+                <li><span id="G1" class="caret">Сложение и вычитание от 1 до 10</span>
                     <ul class="nested">
                         <li><a id="L1" href="quiz.html">Числа и цифры</a></li>
                         <li><a id="L2" href="quiz.html">Сложение чисел от 1 до 6</a></li>
@@ -143,7 +143,7 @@
                         <li><a id="L11" href="quiz.html">Вычитание от 1 до 10: Найди пропущенное число</a></li>        
                     </ul>
                 </li>
-                <li><span class="caret">Сложение и вычитание до 20</span>
+                <li><span id="G2" class="caret">Сложение и вычитание до 20</span>
                     <ul class="nested">
                         <li><a id="L12" href="quiz.html">Сложение чисел от 1 до 20</a></li>
                         <li><a id="L13" href="quiz.html">Сложение от 1 до 20: Найди пропущенное число</a></li>
@@ -151,7 +151,7 @@
                         <li><a id="L15" href="quiz.html">Вычитание от 1 до 20: Найди пропущенное число</a></li>
                     </ul>
                 </li>
-                <li><span class="caret">Сложение и вычитание до 100</span>
+                <li><span id="G3" class="caret">Сложение и вычитание до 100</span>
                     <ul class="nested">
                         <li><a id="L16" href="quiz.html">Сложение чисел от 1 до 100</a></li>
                         <li><a id="L17" href="quiz.html">Сложение от 1 до 100: Найди пропущенное число</a></li>
@@ -159,7 +159,7 @@
                         <li><a id="L19" href="quiz.html">Вычитание от 1 до 100: Найди пропущенное число</a></li>
                     </ul>
                 </li>
-                <li><span class="caret">Таблицы умножения от 2 до 12</span>
+                <li><span id="G4" class="caret">Таблицы умножения от 2 до 12</span>
                     <ul class="nested">
                         <li><a id="L20" href="quiz.html">Таблица умножения на 2</a></li>
                         <li><a id="L21" href="quiz.html">Таблица умножения на 3</a></li>
@@ -174,21 +174,21 @@
                         <li><a id="L30" href="quiz.html">Таблица умножения на 12</a></li>
                     </ul>
                 </li>
-                <li><span class="caret">Умножение и деление до 144</span>
+                <li><span id="G5" class="caret">Умножение и деление до 144</span>
                     <ul class="nested">
                         <li><a id="L31" href="quiz.html">sss</a></li>
                         <li><a id="L32" href="quiz.html">sss</a></li>
                         <li><a id="L33" href="quiz.html">sss</a></li>
                     </ul>
                 </li>
-                <li><span class="caret">Умножение и деление до 200</span>
+                <li><span id="G6" class="caret">Умножение и деление до 200</span>
                     <ul class="nested">
                         <li><a id="L34" href="quiz.html">sss</a></li>
                         <li><a id="L35" href="quiz.html">sss</a></li>
                         <li><a id="L36" href="quiz.html">sss</a></li>
                     </ul>
                 </li>
-                <li><span class="caret">Простые числа</span>
+                <li><span id="G7" class="caret">Простые числа</span>
                     <ul class="nested">
                         <li><a id="L37" href="quiz.html">sss</a></li>
                         <li><a id="L38" href="quiz.html">sss</a></li>
@@ -199,26 +199,34 @@
         </main>
 
         <script>
-        let toggler = document.getElementsByClassName("caret");
         let i;
-          
-        for (i = 0; i < toggler.length; i++) {
-            toggler[i].addEventListener("click", function() {
+	    let currentName = localStorage.getItem('current');
+        // handle groups
+        for (i = 1; i <= 7; i++) {
+            let id_str = 'G' + i.toString()
+            let element = document.getElementById(id_str)            
+            element.addEventListener("click", function() {
                 this.parentElement.querySelector(".nested").classList.toggle("active");
                 this.classList.toggle("caret-down");
+                toggleTOC(localStorage.getItem('current'), parseInt(this.id.substr(1)) - 1)
             });
-        }
-        </script>
-
-        <script>
-            for (let i = 1; i <= 38; i++ ) {
-                let id_str = "L" + i.toString();
-                let elm = document.getElementById(id_str);
-                elm.innerHTML = getQuizByLevelNumber(i).title;
-                elm.addEventListener("click", function(){
-                    localStorage.setItem('runLevel', i)
-                })
+            if (currentName != null && memberNameAlreadyExists(currentName)) {
+                if (getTOCToggleState(currentName, i - 1) === 1) {
+                    element.parentElement.querySelector(".nested").classList.toggle("active");
+                    element.classList.toggle("caret-down");
+                }
             }
+        }
+
+        // handle levels
+        for (i = 1; i <= 38; i++ ) {
+            let id_str = "L" + i.toString();
+            let elm = document.getElementById(id_str);
+            elm.innerHTML = getQuizByLevelNumber(i).title;
+            elm.addEventListener("click", function(){
+                localStorage.setItem('runLevel', i)
+            })
+        }
         </script>
 
     </body>

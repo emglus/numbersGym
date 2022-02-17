@@ -27,8 +27,6 @@ function prepareQuiz() {
 	initMembers();
 	
 	currentName = localStorage.getItem('current');
-	currentLevel = getLevelByMemberName(currentName);
-	currentCounter = getCounterByMemberName(currentName);
 	runLevel = parseInt(localStorage.getItem('runLevel'))
 
 	let st1 = document.getElementById("status-1")
@@ -40,6 +38,11 @@ function prepareQuiz() {
 		return 
 	}
 	if (currentName != null) {
+		if (getNotComplete(currentName)) {
+			resetCounterForMember(currentName)
+		}
+		currentLevel = getLevelByMemberName(currentName);
+		currentCounter = getCounterByMemberName(currentName);
 		st1.innerHTML = currentName + " " + displayLevel(currentLevel, currentCounter);
 	} else {
 		st1.innerHTML = ""
@@ -86,6 +89,7 @@ function startTest() {
 	btn0.innerHTML = timer;	
 	btn0.onclick = function() {} 	// do nothing
 
+	setNotComplete(currentName, true)
 	removeElementById("header3");
 
 	start = Date.now();
@@ -210,6 +214,7 @@ function completeExercise() {
 			resetCounterForMember(currentName)
 		}
 	}
+	setNotComplete(currentName, false)
 
 	let f2 = document.createElement('p');
 	msg = "Ты решил " + count + russian1(count);
@@ -223,7 +228,7 @@ function completeExercise() {
 	btn2.className = 'button';
 	btn2.innerHTML = 'Повторить';	
 	btn2.onclick = function() {
-		location = location;
+		location.reload()
 	}
 	main[0].appendChild(btn2); 	
 
@@ -235,7 +240,7 @@ function completeExercise() {
 		currentName = localStorage.getItem('current');
 		currentLevel = getLevelByMemberName(currentName);
 		localStorage.setItem('runLevel', currentLevel)
-		location = location;
+		location.reload()
 	}
 	main[0].appendChild(btn3); 	
 

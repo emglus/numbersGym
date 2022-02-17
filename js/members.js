@@ -22,59 +22,97 @@ function addMember(name) {
     member.name = name
     member.level = 1
     member.counter = 0
+    member.toc = [0,0,0,0,0,0,0]
+    member.notComplete = false
     members.push(member)
-    let asString = JSON.stringify(members)
-    localStorage.setItem("members", asString)
+    localStorage.setItem("members", JSON.stringify(members))
 }
 
 function advanceMember(name) {
-    for (let i = 0; i < members.length; i++) {
-        if (members[i].name === name) {
-            members[i].counter++;
-            if (members[i].counter >= 3) {
-                members[i].counter = 0
-                members[i].level++
+    for (let m of members) {
+        if (m.name === name) {
+            m.counter++;
+            if (m.counter >= 3) {
+                m.counter = 0
+                m.level++
             }
         }
     }
-    let asString = JSON.stringify(members)
-    localStorage.setItem("members", asString)
+    localStorage.setItem("members", JSON.stringify(members))
 }
 
 function resetCounterForMember(name) {
-    for (let i = 0; i < members.length; i++) {
-        if (members[i].name === name) {
-            members[i].counter = 0;
+    for (let m of members) {
+        if (m.name === name) {
+            m.counter = 0;
         }
     }
-    let asString = JSON.stringify(members)
-    localStorage.setItem("members", asString)
+    localStorage.setItem("members", JSON.stringify(members))
 }
 
 function getLevelByMemberName(name) {
-    for (let i = 0; i < members.length; i++) {
-        if (members[i].name === name) {
-            return members[i].level;
+    for (let m of members) {
+        if (m.name === name) {
+            return m.level;
         }
     }
     return 0;
 }
 
 function getCounterByMemberName(name) {
-    for (let i = 0; i < members.length; i++) {
-        if (members[i].name === name) {
-            return members[i].counter;
+    for (let m of members) {
+        if (m.name === name) {
+            return m.counter;
         }
     }
     return 0;
 }
 
 function memberNameAlreadyExists(name) {
-    for (let i = 0; i < members.length; i++) {
-        if (members[i].name === name) {
+    for (let m of members) {
+        if (m.name === name) {
             return true;
         }
     }
     return false;
 }
 
+function toggleTOC(name, index) {
+    // index starts with 0
+    for (let m of members) {
+        if (m.name === name) {
+            if (m.toc[index] === 0) {
+                m.toc[index] = 1
+            } else {
+                m.toc[index] = 0
+            } 
+        }
+    }
+    localStorage.setItem("members", JSON.stringify(members))
+}
+
+function getTOCToggleState(name, index) {
+    // index starts with 0
+    for (let m of members) {
+        if (m.name === name) {
+            return m.toc[index]
+        }
+    }
+}
+
+function setNotComplete(name, nc) {
+    for (let mem of members) {
+        if (mem.name === name) {
+            mem.notComplete = nc
+        }
+    }
+    localStorage.setItem("members", JSON.stringify(members))
+}
+
+function getNotComplete(name) {
+    for (let mem of members) {
+        if (mem.name === name) {
+            return mem.notComplete
+        }
+    }
+}
