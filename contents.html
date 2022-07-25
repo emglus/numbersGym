@@ -199,10 +199,9 @@
         </main>
 
         <script>
-        let i;
 	    let currentName = localStorage.getItem('current');
         // handle groups
-        for (i = 1; i <= 7; i++) {
+        for (let i = 1; i <= 7; i++) {
             let id_str = 'G' + i.toString()
             let element = document.getElementById(id_str)            
             element.addEventListener("click", function() {
@@ -219,12 +218,12 @@
         }
 
         // handle levels
-        for (i = 1; i <= 38; i++ ) {
+        for (let i = 1; i <= 38; i++ ) {
             let id_str = "L" + i.toString();
             let elm = document.getElementById(id_str);
             elm.innerHTML = getQuizByLevelNumber(i).title;
             elm.addEventListener("click", function(){
-                localStorage.setItem('runLevel', i)
+                localStorage.setItem('runLevel', parseInt(this.id.substr(1)))
             })
         }
         </script>

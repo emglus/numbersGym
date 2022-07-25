@@ -41,6 +41,15 @@ function advanceMember(name) {
     localStorage.setItem("members", JSON.stringify(members))
 }
 
+function setMemberLevel(name, lvl) {
+    for (let m of members) {
+        if (m.name === name) {
+            m.level = lvl;
+        }
+    }
+    localStorage.setItem("members", JSON.stringify(members))
+}
+
 function resetCounterForMember(name) {
     for (let m of members) {
         if (m.name === name) {
