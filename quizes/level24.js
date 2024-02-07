@@ -3,6 +3,16 @@ let level24 = {
     timePerProblem: 3,
     getAllProblems: function() {
         var all = [];
+        for (var i = 1; i <= 12; i++) {
+            var tmp = [];
+            tmp.push(i.toString());
+            tmp.push('x');
+            tmp.push('6');
+            tmp.push('=');
+            var s = i * 6;
+            tmp.push('_' + s.toString());
+            all.push(tmp);
+        }
         return all;
     },
 
